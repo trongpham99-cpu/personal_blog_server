@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const Schema = mongoose.Schema;
 const COLLECTION_NAME = "posts";
 const DOCUMENT_NAME = "post";
 
@@ -10,18 +10,15 @@ const postSchema = new mongoose.Schema(
         post_status: { type: String, required: true },
         post_type: { type: String, required: true },
         post_author: { type: String, required: true },
-        post_date: { type: Date, required: true },
-        post_modified: { type: Date, required: true },
         post_name: { type: String, required: true },
         post_excerpt: { type: String },
         post_category: { type: String, required: true },
         post_tag: { type: String, required: true },
-        post_comment_status: { type: String, required: true },
         post_attachments: { type: String, required: true },
         post_thumbnail: { type: String, required: true },
         post_category_id: { type: String },
         post_tag_id: { type: String },
-        post_product_attributes: { type: String, required: true },
+        post_product_attributes: { type: Schema.Types.Mixed, required: true }
     },
     {
         timestamps: true,
